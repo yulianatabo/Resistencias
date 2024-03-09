@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scal">
+    <title>C.R </title>
+    <link rel="icon" href="media/logo.png">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <section>
+        <div class="contenedor">
+            <div class="formulario">
+                <h2>CALCULADORA DE RESISTENCIAS</h2>
+                <form id="resistorForm">
+                    <div class="input">
+                        <label for="color1">Color de la primera banda:</label>
+                        <select name="color1" id="color1">
+                            <option value="0">Negro</option>
+                            <option value="1">Marrón</option>
+                            <option value="2">Rojo</option>
+                            <option value="3">Naranja</option>
+                            <option value="4">Amarillo</option>
+                            <option value="5">Verde</option>
+                            <option value="6">Azul</option>
+                            <option value="7">Violeta</option>
+                            <option value="8">Gris</option>
+                            <option value="9">Blanco</option>
+                        </select> <br> <br>
+                    </div>
+
+                    <div class="input">
+                        <label for="color2">Color de la segunda banda:</label>
+                        <select name="color2" id="color2">
+                      <option value="0">Negro</option>
+                      <option value="1">Marrón</option>
+                      <option value="2">Rojo</option>
+                      <option value="3">Naranja</option>
+                      <option value="4">Amarillo</option>
+                      <option value="5">Verde</option>
+                      <option value="6">Azul</option>
+                      <option value="7">Violeta</option>
+                      <option value="8">Gris</option>
+                      <option value="9">Blanco</option>
+                        </select><br><br>
+                    </div>
+
+                    <div class="input">
+                        <label for="multiplicador">Multiplicador:</label>
+                        <select name="multiplicador" id="multiplicador">
+                            <option value="1">Negro</option>
+                            <option value="10">Marrón</option>
+                            <option value="100">Rojo</option>
+                            <option value="1000">Naranja</option>
+                            <option value="10000">Amarillo</option>
+                            <option value="100000">Verde</option>
+                            <option value="1000000">Azul</option>
+                            <option value="10000000">Violeta</option>
+                            <option value="100000000">Dorado</option>
+                        </select><br><br>
+                    </div>
+
+                    <div class="input">
+                        <label for="tolerancia">Tolerancia:</label>
+                        <select name="tolerancia" id="tolerancia">
+                           <option value="1%">Marrón</option>
+                           <option value="2%">Rojo</option>
+                           <option value="5%">Dorado</option>
+                        </select><br><br>
+                    </div>
+
+                    <div class="input">
+                        <input type="button" value="Calcular" onclick="calcularResistencia()">
+                    </div>
+                </form>
+
+                <div id="resultado"></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="imagen">
+            <img src="ImagenResistencias.png" alt="">
+        </div>
+        
+    </section>
+
+    <script>
+        function calcularResistencia() {
+           //obtener los valores del formulario 
+            var color1 = parseInt(document.getElementById("color1").value) || 0;
+            var color2 = parseInt(document.getElementById("color2").value) || 0;
+            var multiplicador = parseInt(document.getElementById("multiplicador").value) || 0;
+            var tolerancia = document.getElementById("tolerancia").value || 0;
+
+           //calcular el valor de la resistencia
+            var value = color1 * 10 + color2;
+            value *= multiplicador;
+
+            // Mostrar el resultado
+            document.getElementById("resultado").innerHTML = "El valor de la resistencia es: " + value + " ohms, al " + tolerancia;
+        }
+    </script>
+</body>
+</html>
+  
+
