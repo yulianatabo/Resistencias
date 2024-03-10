@@ -88,19 +88,29 @@
     </section>
 
     <script>
+        // Funcion para calcular la resistencia 
         function calcularResistencia() {
-           //obtener los valores del formulario 
+            // Se obtienen los valores del formulario
             var color1 = parseInt(document.getElementById("color1").value) || 0;
             var color2 = parseInt(document.getElementById("color2").value) || 0;
             var multiplicador = parseInt(document.getElementById("multiplicador").value) || 0;
-            var tolerancia = document.getElementById("tolerancia").value || 0;
-
-           //calcular el valor de la resistencia
+            var tolerancia = parseFloat(document.getElementById("tolerancia").value) || 0;
+            var value= 0;
+        
+            //Se calcula el valor de la resistencia 
+            //mulyiplicar el color de la primera banda por 10 y asi sumar el color de la segunda banda 
             var value = color1 * 10 + color2;
+            //al resultado anterior se le multiplica lo que equivale el color de la tercera banda o multiplicador 
             value *= multiplicador;
 
-            // Mostrar el resultado
-            document.getElementById("resultado").innerHTML = "El valor de la resistencia es: " + value + " ohms, al " + tolerancia;
+            // Calcular los valores minimos y maximos 
+            var minValue = value - (value * (tolerancia / 100));
+            var maxValue = value + ( value * (tolerancia / 100));
+
+
+            // Se muestra el resultado 
+            document.getElementById("resultado").innerHTML = "El valor de la resistencia es: " + value + " ohms, al " + tolerancia + " %"+
+             " con un rango de " + minValue+ " a " + maxValue  + " ohms.";
         }
     </script>
 </body>
